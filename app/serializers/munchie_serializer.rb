@@ -9,7 +9,7 @@ class MunchieSerializer
                     destination_city: restaurant_data[:location][:city] + ", " + restaurant_data[:location][:state],
                     forecast: {
                         summary: forecast_data[:current][:weather][0][:description],
-                        temperature: forecast_data[:current][:temp]
+                        temperature: forecast_data[:current][:temp].to_s
                     },
                     restaurant: {
                         name: restaurant_data[:name],
