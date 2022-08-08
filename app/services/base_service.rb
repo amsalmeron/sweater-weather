@@ -6,5 +6,9 @@ class BaseService
     def self.openweather_connection
         Faraday.new("http://api.openweathermap.org")
     end
+
+    def self.yelp_connection
+        Faraday.new("https://api.yelp.com")
+    end
     
 end
