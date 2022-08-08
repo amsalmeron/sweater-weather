@@ -11,17 +11,17 @@ RSpec.describe "Muchie API" do
 
         restaurant = response_body[:data]
 
-        expect(restaurant[:id]).to  eq(nil)
+        expect(restaurant[:id]).to  eq("null")
         expect(restaurant[:type]).to  eq('munchie')
 
-        expect(restaurant[:attribtues][:destination_city]).to  eq('Denver, CO')
+        expect(restaurant[:attributes][:destination_city]).to  eq('Denver, CO')
 
-        expect(restaurant[:attribtues]).to  have_key(:forecast)
-        expect(restaurant[:attribtues][:forecast]).to  have_key(:summary)
-        expect(restaurant[:attribtues][:forecast]).to  have_key(:temperature)
+        expect(restaurant[:attributes]).to  have_key(:forecast)
+        expect(restaurant[:attributes][:forecast]).to  have_key(:summary)
+        expect(restaurant[:attributes][:forecast]).to  have_key(:temperature)
 
-        expect(restaurant[:attribtues]).to  have_key(:restaurant)
-        expect(restaurant[:attribtues][:restaurant]).to  have_key(:name)
-        expect(restaurant[:attribtues][:restaurant]).to  have_key(:address)
+        expect(restaurant[:attributes]).to  have_key(:restaurant)
+        expect(restaurant[:attributes][:restaurant]).to  have_key(:name)
+        expect(restaurant[:attributes][:restaurant]).to  have_key(:address)
     end
 end
