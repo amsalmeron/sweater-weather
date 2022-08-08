@@ -19,11 +19,15 @@ RSpec.describe "Muchie API" do
     
             expect(restaurant[:attributes]).to  have_key(:forecast)
             expect(restaurant[:attributes][:forecast]).to  have_key(:summary)
+            expect(restaurant[:attributes][:forecast][:summary]).to  be_a(String)
             expect(restaurant[:attributes][:forecast]).to  have_key(:temperature)
-    
+            expect(restaurant[:attributes][:forecast][:temperature]).to  be_a(String)
+            
             expect(restaurant[:attributes]).to  have_key(:restaurant)
             expect(restaurant[:attributes][:restaurant]).to  have_key(:name)
+            expect(restaurant[:attributes][:restaurant][:name]).to  be_a(String)
             expect(restaurant[:attributes][:restaurant]).to  have_key(:address)
+            expect(restaurant[:attributes][:restaurant][:address]).to  be_a(String)
         end
     end
     
