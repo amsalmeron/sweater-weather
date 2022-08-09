@@ -15,10 +15,10 @@ class RoadTrip
         hours += 1 if minutes >= 30
         
         if hours < 48
-            forecast_data[:hourly][hours][:weather][0][:description]
+            forecast_data.hourly_weather[hours - 1][:weather][0][:description]
         elsif hours >= 48
             days = hours / 24
-            forecast_data[:daily][days][:weather][0][:description]
+            forecast_data.daily_weather[days - 1][:weather][0][:description]
         else
             nil
         end
@@ -29,10 +29,10 @@ class RoadTrip
         minutes = time.slice(3..4).to_i
         hours += 1 if minutes >= 30
         if hours < 48
-            forecast_data[:hourly][hours][:temp]
+            forecast_data.hourly_weather[hours - 1][:temp]
         elsif hours >= 48
             days = hours / 24
-            forecast_data[:daily][days][:temp][:day]
+            forecast_data.daily_weather[days - 1][:temp][:day]
         else
             nil
         end

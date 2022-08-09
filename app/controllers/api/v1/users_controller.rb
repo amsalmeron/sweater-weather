@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
             return invalid_credentials if user.auth_token.nil?
             render json: UserSerializer.user_data(user), status: 201
         else
-            render status: 400
+            render json: { data: { message: 'Passwords do not match' }}, status: 400
         end
     end
 
@@ -16,6 +16,6 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def invalid_credentials
-        render json: { data: { message: 'Invalid Email or Password' }}
+        render json: { data: { message: 'Invalid Email or Password' }}, status: 409
     end
 end

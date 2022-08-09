@@ -1,7 +1,8 @@
 class ForecastFacade
 
     def self.find_forecast(location)
-        ForecastService.get_find_forecast(find_coordinates(location))
+        json = ForecastService.get_find_forecast(find_coordinates(location))
+        Forecast.new(json)
     end
     
     def self.find_coordinates(location)
