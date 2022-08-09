@@ -48,6 +48,7 @@ end
 
 group :test do
   gem 'webmock'
+  gem 'vcr'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers'

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Forcast API" do
     describe "happy path" do
-        it "returns focast current, daily and hourly weather" do
+        it "returns focast current, daily and hourly weather", :vcr do
             get "/api/v1/forecast?location=denver,co"
     
             expect(response).to be_successful

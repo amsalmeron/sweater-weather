@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe RoadTripService do
   describe 'methods' do
-    it 'returns the road trip details' do
+    it 'returns the road trip details', :vcr do
       origin = 'Denver, CO'
       destination = 'Pueblo, CO'
       road_trip = RoadTripService.get_trip_directions(origin, destination)

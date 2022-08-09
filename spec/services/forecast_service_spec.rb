@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ForecastService do
   describe 'methods' do
-    it 'returns the forecast for a given location' do
+    it 'returns the forecast for a given location', :vcr do
       coordinates = {lat: 39.738453, lng: -104.984853}
       forecast = ForecastService.get_find_forecast(coordinates)
 
@@ -15,7 +15,7 @@ RSpec.describe ForecastService do
       expect(forecast[:hourly]).to be_a(Array)
     end
 
-    it "returns coordinates for a given location" do
+    it "returns coordinates for a given location", :vcr do
         location = 'Denver, CO'
         denver_coordinates = {lat: 39.738453, lng: -104.984853}
         coordinates = ForecastService.get_find_coordinates(location)

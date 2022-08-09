@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Create a Road Trip' do
     describe "happy path" do
-        it "allows user to login and start a session" do
+        it "allows user to login and start a session", :vcr do
             user = User.create!(email: "antonio1@gmail.com", password: "password123")
             data = {
                 "origin": "Denver, CO",
@@ -29,7 +29,7 @@ RSpec.describe 'Create a Road Trip' do
     end
     
     describe "sad path" do
-        it "user does not have an api key" do
+        it "user does not have an api key", :vcr do
             data = {
                 "origin": "Denver, CO",
                 "destination": "Pueblo, CO"
@@ -42,7 +42,7 @@ RSpec.describe 'Create a Road Trip' do
             expect(error[:data][:message]).to eq('Invalid Login')    
         end    
 
-        it "is impossible to drive" do
+        it "is impossible to drive", :vcr do
             user = User.create!(email: "antonio1@gmail.com", password: "password123")
             data = {
                 "origin": "Denver, CO",
