@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "User Request" do
     it "can create a new user with JSON payload in body of request" do
         data = {
-            "email": "antonio@gmail.com",
+            "email": "antonio1@gmail.com",
             "password": "password123",
             "password_confirmation": "password123"
             }

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'User starts a session' do
     it "allows user to login and start a session" do
-        User.create!(email: "antonio@gmail.com", password: "password123")
+        User.create!(email: "antonio1@gmail.com", password: "password123")
         data = {
-            "email": "antonio@gmail.com",
+            "email": "antonio1@gmail.com",
             "password": "password123",
             }
         headers = { 'CONTENT_TYPE' => 'application/json', "Accept" => 'application/json' }
@@ -24,7 +24,7 @@ RSpec.describe 'User starts a session' do
         expect(user[:data][:attributes]).to have_key(:api_key)
 
         expect(user[:data][:type]).to eq("users")
-        expect(user[:data][:attributes][:email]).to eq("antonio@gmail.com")
+        expect(user[:data][:attributes][:email]).to eq("antonio1@gmail.com")
     end
     
 end
