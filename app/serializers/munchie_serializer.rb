@@ -1,19 +1,19 @@
 class MunchieSerializer
     include JSONAPI::Serializer
-    def self.munchie_data(restaurant_data, forecast_data)
+    def self.munchie_data(munchie_data)
         { 
             data: {
                 id: "null",
                 type: "munchie",
                 attributes: {
-                    destination_city: restaurant_data[:location][:city] + ", " + restaurant_data[:location][:state],
+                    destination_city: munchie_data.city,
                     forecast: {
-                        summary: forecast_data[:current][:weather][0][:description],
-                        temperature: forecast_data[:current][:temp].to_s
+                        summary: munchie_data.forecast_summary,
+                        temperature: munchie_data.forecast_temp
                     },
                     restaurant: {
-                        name: restaurant_data[:name],
-                        address: restaurant_data[:location][:address1] + ", " + restaurant_data[:location][:city] + ", " + restaurant_data[:location][:state] + " " + restaurant_data[:location][:zip_code]
+                        name: munchie_data.name,
+                        address: munchie_data.address
                     }
                 }
             }
